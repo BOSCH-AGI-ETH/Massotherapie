@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Beauchamp | Massothérapie Clinique | Rimouski</title>
+    <meta name="description" content="Massothérapie clinique spécialisée en libération myofasciale. Expertise en thérapie des tissus profonds, reconnexion somatique et performance physique. Rimouski, Bas-Saint-Laurent.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Lora', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        'primary': {
+                            50: '#f4f6f5',
+                            100: '#e3e9e6',
+                            200: '#c7d3cd',
+                            300: '#a1b5ac',
+                            400: '#7a9487',
+                            500: '#5d7a6d',
+                            600: '#4a6257',
+                            700: '#3d5048',
+                            800: '#34433c',
+                            900: '#2d3933',
+                        },
+                        'sand': {
+                            50: '#fafaf8',
+                            100: '#f5f4f0',
+                            200: '#ebe9e1',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafaf8;
+            color: #1f2937;
+        }
+        
+        /* Hero Section Styles */
+        .hero-section {
+            /* Two-tone background: pure white upper half fading into warm sand */
+            background: linear-gradient(
+                160deg,
+                #f4f6f5 0%,       /* primary-50: very soft sage tint */
+                #f8f9f7 40%,      /* near-white, calm and airy */
+                #f0f2ee 75%,      /* warm sage undertone */
+                #e8ede9 100%      /* grounded, gentle close */
+            );
+        }
+
+        /* Decorative accent: subtle top border line in brand green */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #7a9487 30%, #4a6257 60%, transparent 100%);
+            opacity: 0.5;
+        }
+
+        /* No overlay needed — removed */
+
+        /* Bottom-fade to help hero blend into next section */
+        .hero-section-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.6));
+            pointer-events: none;
+        }
+
+        .hero-logo-container {
+            max-width: 520px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-logo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-tagline {
+            font-family: 'Lora', serif;
+            font-size: 1.875rem;
+            line-height: 1.4;
+            color: #2d3933;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        @media (min-width: 768px) {
+            .hero-logo-container { max-width: 600px; }
+            .hero-tagline { font-size: 2.5rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-logo-container { max-width: 700px; }
+            .hero-tagline { font-size: 3rem; }
+        }
+
+        
+        
+        /* Card Styles */
+        .card-professional {
+            background: white;
+            border: 1px solid #e3e9e6;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-professional:hover {
+            border-color: #7a9487;
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(74, 98, 87, 0.12);
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            display: inline-block;
+            background: #4a6257;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background: #3d5048;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(74, 98, 87, 0.2);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid #4a6257;
+            color: #4a6257;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .btn-outline:hover {
+            background: #4a6257;
+            color: white;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+        
+        /* Section Title */
+        .section-title {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #4a6257 0%, transparent 100%);
+        }
+        
+        /* Step Number */
+        .step-number {
+            background: linear-gradient(135deg, #4a6257 0%, #5d7a6d 100%);
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Testimonial Card */
+        .testimonial-card {
+            background: white;
+            border-left: 3px solid #7a9487;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            border-left-color: #4a6257;
+            box-shadow: 0 12px 32px rgba(74, 98, 87, 0.08);
+        }
+        
+        /* Image Hover */
+        .hover-scale {
+            transition: transform 0.6s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+
+        /* Pricing asterisk & disclaimer */
+        .price-asterisk {
+            font-size: 0.55em;
+            vertical-align: super;
+            color: #7a9487;
+            font-weight: 400;
+            line-height: 0;
+        }
+
+        .price-disclaimer {
+            font-size: 0.78rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            font-style: italic;
+            letter-spacing: 0.01em;
+        }
+
+        /* Profile Image */
+        .profile-image-container {
+    		position: relative;
+    		border-radius: 0.75rem;
+    		overflow: hidden;
+    		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+	}
+ 
+        
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #4a6257 0%, #7a9487 100%);
+            z-index: -1;
+            border-radius: 1rem;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
+        }
+        
+        /* Insurance Badge */
+        .insurance-badge {
+            background: linear-gradient(135deg, #f4f6f5 0%, #e3e9e6 100%);
+            border: 1px solid #c7d3cd;
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ── Compensation de la nav fixe lors du scroll sur ancre ──
+           Sans scroll-margin-top, le titre se colle sous la barre de nav.
+           Valeur = hauteur nav + 32px d'air pour que le titre respire.
+           Mobile  : nav 80px  + 32px = 112px
+           Desktop : nav 96px  + 32px = 128px
+        ──────────────────────────────────────────────────────────── */
+        section[id] {
+            scroll-margin-top: 112px;
+        }
+
+        @media (min-width: 640px) {
+            section[id] {
+                scroll-margin-top: 128px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- =============================================
+         NAVIGATION
+         - Desktop (lg+) : logo | liens au centre | CTA à droite
+         - Mobile/tablet  : logo | CTA + bouton hamburger | menu déroulant
+    ============================================= -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-sand-200"
+         aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24">
+
+                <!-- Logo (cliquable → retour en haut) -->
+                <div class="flex items-center flex-shrink-0">
+                    <a href="#accueil" aria-label="Retour à l'accueil">
+                        <div class="font-serif font-semibold text-lg sm:text-xl text-primary-800 leading-relaxed">Samuel Beauchamp</div>
+                        <div class="text-xs text-primary-600 font-medium tracking-wide mt-0.5">MASSOTHÉRAPEUTE</div>
+                    </a>
+                </div>
+
+                <!-- Liens desktop — cachés sur mobile/tablet -->
+                <ul class="hidden lg:flex items-center gap-6 xl:gap-8 list-none m-0 p-0" role="list">
+                    <li><a href="#accueil"     class="nav-link text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Accueil</a></li>
+                    <li><a href="#approche"    class="nav-link text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Approche</a></li>
+                    <li><a href="#protocole"   class="nav-link text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Protocole</a></li>
+                    <li><a href="#temoignages" class="nav-link text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Témoignages</a></li>
+                    <li><a href="#tarifs"      class="nav-link text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Tarifs</a></li>
+                    <li><a href="#contact"     class="nav-link text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Contact</a></li>
+                </ul>
+
+                <!-- Côté droit : CTA toujours visible + hamburger sur mobile -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="https://www.facebook.com/SamuelBeauchampMassotherapeute"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn-primary text-xs sm:text-sm px-5 sm:px-6 py-2 sm:py-2.5">
+                        Prendre Rendez-vous
+                    </a>
+
+                    <!-- Bouton hamburger — visible uniquement sous lg -->
+                    <button id="nav-toggle"
+                            type="button"
+                            class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-primary-50 transition-colors duration-200"
+                            aria-expanded="false"
+                            aria-controls="nav-mobile-menu"
+                            aria-label="Ouvrir le menu">
+                        <span class="hamburger-bar block w-5 h-0.5 bg-primary-700 mb-1 transition-all duration-300"></span>
+                        <span class="hamburger-bar block w-5 h-0.5 bg-primary-700 mb-1 transition-all duration-300"></span>
+                        <span class="hamburger-bar block w-5 h-0.5 bg-primary-700 transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu mobile — caché par défaut, affiché par le JS -->
+        <div id="nav-mobile-menu"
+             class="lg:hidden hidden border-t border-sand-200 bg-white"
+             aria-label="Menu mobile">
+            <ul class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1 list-none m-0 p-0" role="list"
+                style="padding: 0.75rem 1rem;">
+                <li><a href="#accueil"     class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-sm font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Accueil</a></li>
+                <li><a href="#approche"    class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-sm font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Approche</a></li>
+                <li><a href="#protocole"   class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-sm font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Protocole</a></li>
+                <li><a href="#temoignages" class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-sm font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Témoignages</a></li>
+                <li><a href="#tarifs"      class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-sm font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Tarifs</a></li>
+                <li><a href="#contact"     class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-sm font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+ 
+    <!-- Hero Section - Logo Dominant -->
+    <section id="accueil" class="hero-section relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden">
+        <!-- Decorative bottom fade into next section -->
+        <div class="hero-section-fade"></div>
+
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center animate-fade-up">
+                <!-- Large Logo -->
+                <div class="hero-logo-container">
+    			<img src="image/Banniere_masso_vert_rogner.png" 
+         			alt="Massothérapie Samuel Beauchamp" 
+         			class="hero-logo-img"
+         			loading="eager">
+		</div>
+ 
+                
+                <!-- Tagline -->
+                <h1 class="hero-tagline animate-fade-up delay-100">
+                    Libération myofasciale profonde<br class="hidden sm:inline"/>
+                    et reconnexion somatique
+                </h1>
+                
+                <!-- Description -->
+                <p class="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-up delay-200">
+                    Une approche intégrative basée sur la précision technique,<br class="hidden sm:inline"/>
+                    l'écoute du corps et la conscience du mouvement
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up delay-300">
+                    <a href="https://www.facebook.com/SamuelBeauchampMassotherapeute" 
+                       target="_blank" 
+                       class="btn-primary w-full sm:w-auto">
+                        Réserver une Consultation
+                    </a>
+                    <a href="#approche" 
+                       class="btn-outline w-full sm:w-auto">
+                        Découvrir l'Approche
+                    </a>
+                </div>
+                
+                <!-- Insurance Badge -->
+                <div class="mt-8 sm:mt-12 pt-8 border-t border-sand-200 max-w-2xl mx-auto animate-fade-up delay-400">
+                    <div class="flex items-center justify-center gap-3">
+                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-primary-800">Reçus d'assurance disponibles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- About Section with Profile Photo -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Profile Photo -->
+                <div class="order-2 lg:order-1">
+                    <div class="profile-image-container max-w-sm mx-auto lg:max-w-xs">
+                        <img src="image/profil.png" 
+                             alt="Samuel Beauchamp, Massothérapeute Clinique" 
+                             class="profile-image"
+                             loading="eager">
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6">
+                        Samuel Beauchamp
+                    </h2>
+                    <div class="text-xl text-primary-700 mb-6 font-medium">
+                        Massothérapeute Clinique
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            Mon approche thérapeutique combine <strong>maîtrise technique</strong>, 
+                            <strong>compréhension biomécanique</strong> et <strong>capacité d'accompagnement</strong> 
+                            pour restaurer l'équilibre naturel du corps.
+                        </p>
+                        
+                        <p>
+                            Je me spécialise en <strong>libération myofasciale profonde</strong>, une technique précise 
+                            ciblant les adhésions fasciales, les restrictions de mobilité et les compensations musculaires chroniques.
+                        </p>
+                        
+                        <p>
+                            Ce qui distingue mon travail : ma <strong>capacité de ralentir</strong> avec chaque client, 
+                            créant un espace de présence où le corps peut véritablement s'exprimer et libérer ses tensions profondes.
+                        </p>
+                        
+                        <p class="text-primary-700 font-medium">
+                            Une pratique enracinée dans le Bas-Saint-Laurent, alliant rigueur clinique 
+                            et respect du rythme naturel du corps.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="https://www.facebook.com/SamuelBeauchampMassotherapeute" 
+                           target="_blank" 
+                           class="btn-primary">
+                            Prendre Rendez-vous
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Mon Approche -->
+    <section id="approche" class="py-16 sm:py-24 bg-sand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
+                    Une Approche Fondée sur la Compétence
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Trois piliers thérapeutiques pour une guérison durable et une reconnexion profonde avec votre corps
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+                <!-- Pillar 1 -->
+                <div class="card-professional p-6 sm:p-8 lg:p-10 rounded-xl">
+                    <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-4 text-primary-900">
+                        Libération Myofasciale
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Travail précis des tissus profonds ciblant les adhésions fasciales, 
+                        les restrictions de mobilité et les compensations musculaires chroniques.
+                    </p>
+                    <p class="text-sm text-primary-700 font-medium">
+                        Pressions soutenues • Mouvements intentionnels
+                    </p>
+                </div>
+                
+                <!-- Pillar 2 -->
+                <div class="card-professional p-6 sm:p-8 lg:p-10 rounded-xl">
+                    <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-4 text-primary-900">
+                        Respiration & Conscience
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Accompagnement respiratoire synchronisé favorisant le relâchement parasympathique 
+                        et la reconnexion avec les zones corporelles inhibées.
+                    </p>
+                    <p class="text-sm text-primary-700 font-medium">
+                        Présence • Intériorisation • Relâchement
+                    </p>
+                </div>
+                
+                <!-- Pillar 3 -->
+                <div class="card-professional p-6 sm:p-8 lg:p-10 rounded-xl sm:col-span-2 lg:col-span-1">
+                    <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-4 text-primary-900">
+                        Circulation Intégrative
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Techniques de massage suédois favorisant l'élimination des toxines, 
+                        l'oxygénation tissulaire et la restauration du flux énergétique.
+                    </p>
+                    <p class="text-sm text-primary-700 font-medium">
+                        Circulation • Détoxification • Récupération
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Déroulement d'une Séance -->
+    <section id="protocole" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
+                    Protocole Thérapeutique
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Chaque consultation suit un processus clinique rigoureux, 
+                    adapté à vos besoins spécifiques et objectifs de santé
+                </p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="card-professional p-6 sm:p-8 lg:p-10 rounded-xl">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 step-number rounded-xl flex items-center justify-center text-lg">
+                                01
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 text-primary-900">
+                                Anamnèse & Évaluation Posturale
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Entretien approfondi sur vos antécédents médicaux, habitudes de vie, 
+                                schémas posturaux et objectifs thérapeutiques. Évaluation clinique de votre posture, 
+                                amplitudes articulaires et identification des zones de restriction fasciale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="card-professional p-6 sm:p-8 lg:p-10 rounded-xl">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 step-number rounded-xl flex items-center justify-center text-lg">
+                                02
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 text-primary-900">
+                                Observation Clinique du Corps
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Analyse visuelle de votre posture statique et dynamique. Identification des déséquilibres musculaires, 
+                                compensations biomécaniques et schémas de tension. Cette évaluation permet d'orienter le traitement 
+                                de manière précise et personnalisée.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="card-professional p-6 sm:p-8 lg:p-10 rounded-xl">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 step-number rounded-xl flex items-center justify-center text-lg">
+                                03
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 text-primary-900">
+                                Traitement Myofascial & Respiration
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Application de techniques de libération myofasciale profonde avec pressions soutenues. 
+                                Accompagnement respiratoire synchronisé favorisant le relâchement parasympathique. 
+                                <strong>Je prends le temps nécessaire</strong> pour que vous puissiez ressentir et intérioriser 
+                                vos inconforts, transformant la sensation en conscience corporelle profonde.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="card-professional p-6 sm:p-8 lg:p-10 rounded-xl">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 step-number rounded-xl flex items-center justify-center text-lg">
+                                04
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 text-primary-900">
+                                Retour Clinique & Recommandations
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Discussion post-traitement sur les observations cliniques et restrictions identifiées. 
+                                Suggestions d'exercices d'auto-relâchement, modifications posturales et pratiques respiratoires 
+                                pour prolonger les bienfaits du traitement et favoriser une guérison durable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Ce Qui Me Distingue -->
+    <section class="py-16 sm:py-24 bg-sand-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Treatment Room Photo -->
+                <div class="order-2 lg:order-1">
+                    <div class="rounded-2xl overflow-hidden shadow-xl">
+                        <img src="image/Local_pratique.jpeg" 
+                             alt="Salle de traitement professionnelle" 
+                             class="w-full h-auto hover-scale"
+                             loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-8">
+                        Ce Qui Distingue<br/>Mon Approche
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 pt-1">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-primary-900">Capacité de Ralentir</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Je crée un espace de présence authentique où votre corps peut véritablement 
+                                    s'exprimer et libérer ses tensions profondes, sans précipitation.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 pt-1">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-primary-900">Intériorisation de l'Inconfort</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    J'accompagne mes clients dans la reconnaissance et l'acceptation de leurs sensations corporelles, 
+                                    transformant l'inconfort en opportunité de conscience somatique.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 pt-1">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-primary-900">Approche du Bas-Saint-Laurent</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Une pratique enracinée dans notre région, alliant rigueur clinique et respect 
+                                    du rythme naturel du corps, sans protocoles standardisés.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Testimonials -->
+    <section id="temoignages" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-20">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
+                    Témoignages Clients
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Retours d'expérience de personnes ayant bénéficié de l'approche thérapeutique
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 gap-6 sm:gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Samuel a une approche unique qui combine technique et écoute. 
+                        Mes tensions chroniques au cou et aux épaules se sont considérablement améliorées. 
+                        Je recommande fortement ses services."
+                    </p>
+                    <div>
+                        <p class="font-semibold text-primary-900">Marie-Claude</p>
+                        <p class="text-sm text-gray-500">Travailleuse de bureau</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "En tant que golfeur, j'avais besoin d'un thérapeute qui comprend la biomécanique du corps. 
+                        Samuel m'a aidé à retrouver ma mobilité et améliorer mes performances. 
+                        Approche professionnelle et résultats concrets."
+                    </p>
+                    <div>
+                        <p class="font-semibold text-primary-900">François</p>
+                        <p class="text-sm text-gray-500">Golfeur amateur</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Après une blessure sportive, je cherchais un thérapeute compétent pour ma récupération. 
+                        L'approche de Samuel est à la fois douce et efficace. Je me sens beaucoup mieux et plus en contrôle de mon corps."
+                    </p>
+                    <div>
+                        <p class="font-semibold text-primary-900">Sophie</p>
+                        <p class="text-sm text-gray-500">Athlète amateur</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Samuel prend vraiment le temps d'écouter et de comprendre. Son approche personnalisée 
+                        m'a permis de mieux comprendre mon corps et de progresser dans ma guérison. Excellent professionnel."
+                    </p>
+                    <div>
+                        <p class="font-semibold text-primary-900">Jean-Marc</p>
+                        <p class="text-sm text-gray-500">Travailleur manuel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Indications Thérapeutiques -->
+    <section class="py-16 sm:py-24 bg-sand-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
+                    Indications Thérapeutiques
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    La thérapie myofasciale profonde est particulièrement efficace pour
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="card-professional p-6 rounded-xl">
+                    <h3 class="font-semibold text-primary-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Douleurs Chroniques
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Tensions persistantes du cou, épaules, dos et lombaires
+                    </p>
+                </div>
+                
+                <div class="card-professional p-6 rounded-xl">
+                    <h3 class="font-semibold text-primary-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Restrictions de Mobilité
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Limitations articulaires et adhésions fasciales
+                    </p>
+                </div>
+                
+                <div class="card-professional p-6 rounded-xl">
+                    <h3 class="font-semibold text-primary-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Récupération Post-Blessure
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Réhabilitation après traumatisme ou chirurgie
+                    </p>
+                </div>
+                
+                <div class="card-professional p-6 rounded-xl">
+                    <h3 class="font-semibold text-primary-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Déséquilibres Posturaux
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Compensations musculaires et asymétries corporelles
+                    </p>
+                </div>
+                
+                <div class="card-professional p-6 rounded-xl">
+                    <h3 class="font-semibold text-primary-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Optimisation Performance
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Amélioration de l'efficacité du mouvement sportif
+                    </p>
+                </div>
+                
+                <div class="card-professional p-6 rounded-xl">
+                    <h3 class="font-semibold text-primary-900 mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Stress Somatisé
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Tensions corporelles liées à l'anxiété chronique
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Tarifs -->
+    <section id="tarifs" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
+                Tarification
+            </h2>
+            <p class="text-lg sm:text-xl text-gray-600 mb-12">
+                Investissement dans votre santé et bien-être à long terme
+            </p>
+            
+            <div class="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto mb-12">
+                <div class="card-professional p-8 sm:p-10 rounded-xl">
+                    <div class="text-5xl sm:text-6xl font-light text-primary-900 mb-2">60</div>
+                    <div class="text-gray-500 mb-6">minutes</div>
+                    <div class="text-4xl sm:text-5xl font-semibold text-primary-700 mb-8">80 $<sup class="price-asterisk">*</sup></div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Séance complète incluant évaluation, traitement et recommandations personnalisées
+                    </p>
+                </div>
+                
+                <div class="card-professional p-8 sm:p-10 rounded-xl border-2 border-primary-600">
+                    <div class="inline-block px-3 py-1 bg-primary-600 text-white text-xs font-semibold rounded-full mb-4">
+                        RECOMMANDÉ
+                    </div>
+                    <div class="text-5xl sm:text-6xl font-light text-primary-900 mb-2">90</div>
+                    <div class="text-gray-500 mb-6">minutes</div>
+                    <div class="text-4xl sm:text-5xl font-semibold text-primary-700 mb-8">120 $<sup class="price-asterisk">*</sup></div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Séance approfondie pour un travail thérapeutique plus complet et intégratif
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Insurance Information -->
+            <div class="insurance-badge max-w-2xl mx-auto p-6 rounded-xl mb-12">
+                <div class="flex items-center justify-center gap-3 mb-3">
+                    <svg class="w-6 h-6 text-primary-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <h3 class="font-semibold text-primary-900 text-lg">Reçus d'Assurance</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                    Si votre assurance couvre la massothérapie, n'hésitez pas à me consulter 
+                    pour bénéficier de vos prestations. Votre bien-être est la priorité.
+                </p>
+            </div>
+            
+            <!-- Tax Disclaimer -->
+            <p class="price-disclaimer">* Les taxes applicables ne sont pas incluses. Elles seront ajoutées au moment du paiement.</p>
+
+            <a href="https://www.facebook.com/SamuelBeauchampMassotherapeute" 
+               target="_blank" 
+               class="btn-primary">
+                Réserver votre Consultation
+            </a>
+        </div>
+    </section>
+ 
+    <!-- Final CTA -->
+    <section id="contact" class="py-16 sm:py-24 bg-gradient-to-br from-primary-800 to-primary-600 text-white relative overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6">
+                Commencez Votre Parcours<br/>de Guérison Aujourd'hui
+            </h2>
+            <div class="w-16 h-px bg-white/40 mx-auto mb-8"></div>
+            <p class="text-lg sm:text-xl mb-10 opacity-90 leading-relaxed max-w-2xl mx-auto">
+                Prenez le temps de vous reconnecter avec votre corps. 
+                Chaque séance est une opportunité de libération, de conscience et de transformation profonde.
+            </p>
+            <a href="https://www.facebook.com/SamuelBeauchampMassotherapeute" 
+               target="_blank" 
+               class="btn-primary bg-white text-primary-800 hover:bg-sand-100">
+                Prendre Rendez-vous
+            </a>
+        </div>
+    </section>
+ 
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <!-- Logo Banner -->
+                <div class="mb-8">
+                    <img src="image/Banniere_masso-samuel-beauchamp-bienetre-beige_rogner.png" 
+                         alt="Massothérapie Samuel Beauchamp - Parce que le Bien-Être se partage" 
+                         class="mx-auto h-auto w-full max-w-md sm:max-w-lg"
+                         loading="lazy">
+                </div>
+                
+                <p class="text-primary-300 mb-1 text-sm">Massothérapie Clinique</p>
+                <p class="text-primary-300 mb-6 text-sm">Rimouski, Bas-Saint-Laurent</p>
+                
+                <div class="w-full h-px bg-primary-700 my-6"></div>
+                
+                <a href="https://www.facebook.com/SamuelBeauchampMassotherapeute" 
+                   target="_blank" 
+                   class="inline-flex items-center gap-2 text-primary-200 hover:text-white transition-colors text-sm">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Suivez-moi sur Facebook
+                </a>
+                
+                <p class="text-primary-400 text-xs mt-8 mb-6">
+                    © 2025 Massothérapie Samuel Beauchamp. Tous droits réservés.
+                </p>
+                
+                <!-- Language Selector -->
+                <div class="pt-6 border-t border-primary-700">
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="text-primary-400 text-xs">Langue / Language:</span>
+                        <div class="inline-flex items-center gap-1 bg-primary-800 rounded-full p-1">
+                            <button onclick="setLanguage('fr')" 
+                                    id="lang-fr"
+                                    class="lang-btn px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 lang-active">
+                                FR
+                            </button>
+                            <button onclick="setLanguage('en')" 
+                                    id="lang-en"
+                                    class="lang-btn px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 text-primary-300 hover:text-white">
+                                EN
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-primary-500 text-xs mt-3 italic">Version anglaise bientôt disponible</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Language Selector
+        function setLanguage(lang) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('lang-active');
+                btn.classList.add('text-primary-300', 'hover:text-white');
+            });
+            
+            // Add active class to selected button
+            const selectedBtn = document.getElementById('lang-' + lang);
+            selectedBtn.classList.add('lang-active');
+            selectedBtn.classList.remove('text-primary-300', 'hover:text-white');
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Here you would implement actual language switching
+            if (lang === 'en') {
+                // For now, show a message (can be replaced with actual translation logic)
+                console.log('English version coming soon');
+            }
+        }
+        
+        // Load saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            setLanguage(savedLang);
+        });
+    </script>
+    
+    <style>
+        .lang-active {
+            background-color: #4a6257;
+            color: white;
+        }
+
+        /* Lien nav actif — surligné quand la section est visible */
+        .nav-link.is-active {
+            color: #4a6257;
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- =============================================
+         SCRIPT NAVIGATION
+         1. Toggle ouverture / fermeture menu mobile
+         2. Fermeture automatique au clic sur un lien
+         3. Surlignage du lien actif via IntersectionObserver
+    ============================================= -->
+    <script>
+        // 1. Toggle menu mobile
+        var navToggle = document.getElementById('nav-toggle');
+        var navMenu   = document.getElementById('nav-mobile-menu');
+
+        navToggle.addEventListener('click', function () {
+            var isOpen = !navMenu.classList.contains('hidden');
+            navMenu.classList.toggle('hidden');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            navToggle.setAttribute('aria-label',    isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+        });
+
+        // 2. Fermer au clic sur un lien mobile
+        document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                navMenu.classList.add('hidden');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.setAttribute('aria-label', 'Ouvrir le menu');
+            });
+        });
+
+        // 3. Lien actif selon la section visible (IntersectionObserver)
+        // Déclenche quand la section occupe la zone entre 20% et 70% du viewport
+        var allNavLinks = document.querySelectorAll('.nav-link');
+        var sections    = document.querySelectorAll('section[id]');
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                // Retirer l'état actif de tous les liens
+                allNavLinks.forEach(function (link) { link.classList.remove('is-active'); });
+                // Activer les liens correspondant à la section visible
+                document.querySelectorAll('.nav-link[href="#' + entry.target.id + '"]').forEach(function (link) {
+                    link.classList.add('is-active');
+                });
+            });
+        }, {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(function (section) { observer.observe(section); });
+    </script>
+
+</body>
+</html>
