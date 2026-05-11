@@ -51,12 +51,39 @@ de massothérapie thérapeutique et relaxante.
 
 ### Images disponibles (`image/`)
 
+**Bannières horizontales (logo + texte)**
+
+| Fichier | Fond | Usage |
+|---|---|---|
+| `Banniere_masso-samuel-beauchamp-bienetre-beige_rogner.png` | Crème `--couleur-creme` | ✅ **Hero** — fond s'harmonise avec la palette |
+| `Banniere_masso_vert_rogner.png` | Vert `--couleur-foret` | ✅ **Footer** — se fond dans le fond vert |
+| `LogoBlancLong.png` | Beige très clair | Réserve |
+| `Banniere_masso-samuel-beauchamp-bienetre-partage_noir copie.png` | Blanc/noir | Documents, impression |
+
+**Logos icône seule**
+
+| Fichier | Fond | Usage |
+|---|---|---|
+| `logo_Samuel-Beauchamp_masso copie 2.png` | Blanc | ✅ **Nav bar** — s'intègre sur fond blanc |
+| `logo_Samuel-Beauchamp_masso_beige.png` | Transparent beige | Sections claires (`--couleur-creme`) |
+| `logo_Samuel-Beauchamp_masso_noir.png` | Transparent noir | Impression / PDF |
+| `logo_Samuel-Beauchamp_masso copie.png` | Beige carré | Réserve |
+| `logo_Samuel-Beauchamp_masso_vert.png` | Vert carré | Réserve |
+| `logo.png` | Vert foncé carré | Réserve (fond carré visible) |
+
+**Logos carrés (profil réseaux sociaux)**
+
+| Fichier | Fond | Usage |
+|---|---|---|
+| `Profil_masso-samuel-beauchamp-bienetre-partage.png` | Vert `--couleur-foret` | Avatar Facebook / Instagram |
+| `Profil_masso-samuel-beauchamp-bienetre-partage_beige.png` | Crème `--couleur-creme` | Publications claires |
+
+**Photos**
+
 | Fichier | Usage |
 |---|---|
-| `logo.png` | Logo coloré — nav bar uniquement |
-| `LogoBlancLong.png` | Logo blanc horizontal — hero et footer |
-| `profil.png` | Photo de Samuel (section About) |
-| `Local_pratique.jpeg` | Photo du local de pratique |
+| `profil.png` | Photo de Samuel (section About) — ancienne version |
+| `Local_pratique.jpeg` | Photo du local de pratique (section "Ce qui distingue") |
 
 ---
 
