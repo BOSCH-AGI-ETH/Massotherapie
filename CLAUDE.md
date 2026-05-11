@@ -32,8 +32,22 @@ de massothérapie thérapeutique et relaxante.
 - **Images:** Espaces épurés, lumière naturelle, textures organiques. Jamais de
   stock photos génériques ou cliniques.
 
-### Couleur principale
-`#4a6257` (vert sauge foncé) — définie comme `primary-600` dans la config Tailwind.
+### Palette officielle — Variables CSS (tirées du logo)
+```css
+:root {
+  --couleur-foret:    #3B5C48;   /* Fond principal, navbar */
+  --couleur-sauge:    #5C7D6A;   /* Accents, hover, icônes */
+  --couleur-beige:    #C4A882;   /* Titres, texte sur fond vert */
+  --couleur-bleu:     #A8C4D4;   /* Détails doux, séparateurs */
+  --couleur-creme:    #F5F0E8;   /* Fond sections claires */
+  --couleur-nuit:     #2A3D30;   /* Footer, texte foncé */
+}
+```
+
+**Règles d'utilisation :**
+- Toujours utiliser ces variables — jamais de codes hex directs dans le HTML/CSS pour les couleurs principales
+- Texte sur fond `--couleur-foret` → utiliser `--couleur-beige` ou blanc cassé
+- Texte sur fond `--couleur-creme` → utiliser `--couleur-nuit`
 
 ### Images disponibles (`image/`)
 
