@@ -41,12 +41,13 @@
         "name": "Rimouski, Bas-Saint-Laurent, Québec"
       },
       "sameAs": [
-        "https://m.me/SamuelBeauchampMassotherapeute"
+        "https://www.facebook.com/SamuelBeauchampMassotherapeute"
       ]
     }
     </script>
 
     <link rel="icon" type="image/png" href="image/logo_Samuel-Beauchamp_masso copie 2.png">
+    <link rel="canonical" href="https://massotherapiesamuelbeauchamp.online">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1129,7 +1130,7 @@
                 </a>
                 
                 <p class="text-primary-400 text-xs mt-8 mb-6">
-                    © 2025 Massothérapie Samuel Beauchamp. Tous droits réservés.
+                    © 2026 Massothérapie Samuel Beauchamp. Tous droits réservés.
                 </p>
                 
                 <!-- Language Selector -->
@@ -1249,6 +1250,24 @@
 
         sections.forEach(function (section) { observer.observe(section); });
     </script>
+
+    <!-- CTA fixe mobile — visible uniquement sur petit écran -->
+    <div id="mobile-cta-bar"
+         class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-sand-200 px-4 py-3 shadow-lg">
+        <a href="https://m.me/SamuelBeauchampMassotherapeute"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-primary w-full text-center block">
+            Prendre Rendez-vous
+        </a>
+    </div>
+
+    <style>
+        /* Espace pour que le footer ne soit pas caché par la barre fixe sur mobile */
+        @media (max-width: 1023px) {
+            footer { padding-bottom: 5rem; }
+        }
+    </style>
 
 </body>
 </html>
