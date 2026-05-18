@@ -1292,66 +1292,11 @@
                     © 2026 Massothérapie Samuel Beauchamp. Tous droits réservés.
                 </p>
                 
-                <!-- Language Selector -->
-                <div class="pt-6 border-t border-primary-700">
-                    <div class="flex items-center justify-center gap-3">
-                        <span class="text-primary-400 text-xs">Langue / Language:</span>
-                        <div class="inline-flex items-center gap-1 bg-primary-800 rounded-full p-1">
-                            <button onclick="setLanguage('fr')" 
-                                    id="lang-fr"
-                                    class="lang-btn px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 lang-active">
-                                FR
-                            </button>
-                            <button onclick="setLanguage('en')" 
-                                    id="lang-en"
-                                    class="lang-btn px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 text-primary-300 hover:text-white">
-                                EN
-                            </button>
-                        </div>
-                    </div>
-                    <p class="text-primary-500 text-xs mt-3 italic">Version anglaise bientôt disponible</p>
-                </div>
             </div>
         </div>
     </footer>
     
-    <script>
-        // Language Selector
-        function setLanguage(lang) {
-            // Remove active class from all buttons
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('lang-active');
-                btn.classList.add('text-primary-300', 'hover:text-white');
-            });
-            
-            // Add active class to selected button
-            const selectedBtn = document.getElementById('lang-' + lang);
-            selectedBtn.classList.add('lang-active');
-            selectedBtn.classList.remove('text-primary-300', 'hover:text-white');
-            
-            // Store preference
-            localStorage.setItem('preferredLanguage', lang);
-            
-            // Here you would implement actual language switching
-            if (lang === 'en') {
-                // For now, show a message (can be replaced with actual translation logic)
-                console.log('English version coming soon');
-            }
-        }
-        
-        // Load saved language preference on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
-            setLanguage(savedLang);
-        });
-    </script>
-    
     <style>
-        .lang-active {
-            background-color: #4a6257;
-            color: white;
-        }
-
         /* FAQ accordion */
         .faq-summary { cursor: pointer; }
         .faq-summary::-webkit-details-marker { display: none; }
