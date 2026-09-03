@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page introuvable | Samuel Beauchamp Massothérapeute</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="tailwind.min.css">
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url('fonts/inter-latin.woff2') format('woff2');
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #fafaf8; color: #1f2937; }
+        /* Utilitaires non présents dans tailwind.min.css (généré depuis index/legal) */
+        .page-404 { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 1.5rem; }
+        .btn-404 { display: inline-block; padding: 1rem 2rem; background: #3d5048; color: #fff; border-radius: 9999px;
+                   font-weight: 500; text-decoration: none; transition: background-color .2s ease; }
+        .btn-404:hover { background: #34433c; }
+    </style>
+</head>
+<body>
+    <main class="page-404">
+        <div class="text-center max-w-lg">
+            <img src="image/logo-samuel-beauchamp-massotherapie.png"
+                 alt="Massothérapie Samuel Beauchamp, Rimouski"
+                 class="h-16 w-auto mx-auto mb-8" width="360" height="307">
+            <p class="text-sm font-semibold text-primary-600 uppercase tracking-widest mb-3">Erreur 404</p>
+            <h1 class="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">Cette page n'existe pas</h1>
+            <p class="text-gray-600 mb-8">
+                Le lien que vous avez suivi est peut-être désuet. Retournez à l'accueil
+                pour découvrir les soins de massothérapie offerts à Rimouski.
+            </p>
+            <a href="/" class="btn-404">
+                Retour à l'accueil
+            </a>
+            <p class="mt-8 text-sm text-gray-500">
+                Ou joignez Samuel directement au
+                <a href="tel:5146495560" class="text-primary-700 font-medium underline">514 649-5560</a>
+            </p>
+        </div>
+    </main>
+</body>
+</html>

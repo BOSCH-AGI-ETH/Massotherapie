@@ -201,8 +201,84 @@ Applique systématiquement ces règles SEO dans tout le code et contenu.
 
 ---
 
+## ARCHITECTURE DES PAGES (SEO local)
+
+| Fichier | Rôle |
+|---|---|
+| `index.html` | Page principale — cible « massothérapeute Rimouski » |
+| `soins-et-douleurs.html` | Page pilier : répertoire des approches et des inconforts |
+| `<inconfort>-rimouski.html` | 16 pages d'atterrissage, une par intention de recherche |
+| `legal.html` | Mentions légales + confidentialité (`noindex`) |
+| `404.html` | Page d'erreur GitHub Pages |
+| `robots.txt`, `sitemap.xml` | Signaux d'exploration pour les moteurs |
+
+**Règles pour les pages d'atterrissage :**
+- Un seul H1 par page, contenant le mot-clé + « Rimouski »
+- `<title>` unique, 60 caractères max, `<meta name="description">` unique
+- Chaque page contient : signes ressentis, apport de la massothérapie, déroulement,
+  tarifs, FAQ, liens vers 6 pages sœurs, CTA
+- Données structurées : `BreadcrumbList` + `Service` + `FAQPage`
+- Ajouter toute nouvelle page au `sitemap.xml` et à la liste de liens de `index.html`
+
+**Vocabulaire obligatoire (champ de pratique) :** « peut contribuer à soulager »,
+« accompagner », « inconfort ». Jamais « traiter », « guérir », « diagnostiquer »,
+ni promesse de résultat. Le disclaimer médical figure sur chaque page.
+
+**Formations réelles de Samuel — ne jamais en inventer d'autres :**
+- Diplôme en massothérapie — École Kineconcept, Montréal
+- Formation de base en massage des tissus profonds — Daniel Poirier et Glen Morris
+- Formation en relâchement du diaphragme — Daniel Poirier
+- Formation en travail de l'épaule — Daniel Poirier
+
+**Spécialisation à annoncer :** massage des tissus profonds et écoute du corps.
+❌ Ne jamais écrire « spécialisé en libération myofasciale », « fasciathérapie » ni
+« formation en libération myofasciale » : aucun diplôme dans cette discipline.
+✅ Formulation exacte autorisée : le travail en profondeur *relâche* les tissus
+myofasciaux — c'est un effet du massage des tissus profonds, pas une méthode distincte.
+
+**Ton — aucun vocabulaire de spa.** Le local est propre et tranquille, au centre-ville de
+Rimouski. ❌ Jamais « endroit paisible », « havre de paix », « au cœur de Rimouski »,
+« lumière douce », « parcours de mieux-être », « transformation profonde », « reconnecter
+avec votre corps ». ✅ Décrire ce qui se passe concrètement : la technique, le rythme,
+la durée, le résultat attendu. Ce qui distingue Samuel, c'est le travail, pas le décor.
+
+**Massage de détente :** Samuel ne pratique **pas** le massage suédois. La détente est
+obtenue avec les mêmes techniques de tissus profonds, appliquées à un rythme plus lent et
+une intensité plus modérée. ❌ Ne jamais lister « massage suédois » comme service ou
+compétence. ✅ Écrire « détente par le travail en profondeur ».
+
+---
+
+## CSS TAILWIND
+`tailwind.min.css` est compilé — il doit être régénéré après **toute** modification
+de classes dans un fichier HTML, sinon les nouvelles classes n'ont aucun style :
+
+```bash
+npx --yes tailwindcss@3.4.17 -i tailwind.input.css -o tailwind.min.css --minify
+```
+
+`tailwind.config.js` scanne `./*.html` : toute nouvelle page à la racine est prise en compte.
+
+---
+
+## IMAGES
+Format WebP obligatoire pour les nouvelles images (`banniere-beige.webp`,
+`banniere-verte.webp`, `local-pratique.webp`, `profil.webp`). Toujours indiquer
+`width`, `height` et `loading="lazy"` — sauf l'image du haut de page qui prend
+`loading="eager" fetchpriority="high"`. Aucun espace dans les noms de fichiers.
+
+---
+
+## VIE PRIVÉE (Loi 25)
+Aucune ressource tierce n'est chargée automatiquement : polices, CSS et images sont
+auto-hébergés. La carte Google Maps de `index.html` ne se charge **que sur clic**.
+Toute nouvelle ressource externe doit suivre ce modèle et être déclarée dans `legal.html`.
+
+---
+
 ## DÉPLOIEMENT
-GitHub Pages publie automatiquement depuis la branche `main`. Aucune étape de build requise.
+GitHub Pages publie automatiquement depuis la branche `main`. Aucune étape de build requise,
+sauf la régénération de `tailwind.min.css` si des classes ont changé.
 
 ```bash
 git add <fichiers>
