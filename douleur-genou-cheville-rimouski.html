@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Massage pour les genoux et les chevilles à Rimouski | Samuel Beauchamp</title>
+    <title>Massage genoux et chevilles à Rimouski | Samuel Beauchamp</title>
     <meta name="description" content="Genou sensible ou cheville raide à Rimouski ? Massothérapie des membres inférieurs : cuisses, mollets, fascias. Approche complémentaire, reçus d&#x27;assurance.">
     <link rel="canonical" href="https://massotherapiesamuelbeauchamp.online/douleur-genou-cheville-rimouski.html">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -12,7 +12,7 @@
 
     <meta property="og:type" content="article">
     <meta property="og:locale" content="fr_CA">
-    <meta property="og:site_name" content="Samuel Beauchamp Massothérapeute">
+    <meta property="og:site_name" content="Samuel Beauchamp — Massothérapeute">
     <meta property="og:title" content="Massage genoux et chevilles — Rimouski">
     <meta property="og:description" content="Genou sensible ou cheville raide à Rimouski ? Massothérapie des membres inférieurs : cuisses, mollets, fascias. Approche complémentaire, reçus d&#x27;assurance.">
     <meta property="og:url" content="https://massotherapiesamuelbeauchamp.online/douleur-genou-cheville-rimouski.html">
@@ -28,6 +28,7 @@
     <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="fonts/lora-latin.woff2" crossorigin>
     <link rel="stylesheet" href="tailwind.min.css">
     <style>
         @font-face {
@@ -56,6 +57,41 @@
         .page-hero { background: linear-gradient(160deg, #f4f6f5 0%, #f8f9f7 45%, #eef1ee 100%); }
         details > summary { list-style: none; cursor: pointer; }
         details > summary::-webkit-details-marker { display: none; }
+
+        /* ---- Menu déroulant desktop (CSS pur, aucun JS) ---- */
+        .menu-panneau { display: none; }
+        .menu-deroulant:hover .menu-panneau,
+        .menu-deroulant:focus-within .menu-panneau { display: block; }
+        .menu-fleche { transition: transform .2s ease; }
+        .menu-deroulant:hover .menu-fleche,
+        .menu-deroulant:focus-within .menu-fleche { transform: rotate(180deg); }
+        .menu-lien {
+            display: block; padding: .375rem .5rem; border-radius: .5rem;
+            font-size: .9375rem; line-height: 1.35; color: #4b5563; text-decoration: none;
+            transition: background-color .15s ease, color .15s ease;
+        }
+        .menu-lien:hover, .menu-lien:focus-visible { background: #f4f6f5; color: #3d5048; }
+        .menu-lien-actif { color: #3d5048; font-weight: 600; }
+
+        /* ---- Menu mobile (<details>) ---- */
+        .menu-mobile summary { list-style: none; cursor: pointer; }
+        .menu-mobile .icone-fermer { display: none; }
+        .menu-mobile[open] > summary .icone-ouvrir { display: none; }
+        .menu-mobile[open] > summary .icone-fermer { display: block; }
+        .menu-mobile-panneau {
+            position: fixed; left: 0; right: 0; top: 5rem;
+            max-height: calc(100vh - 5rem); overflow-y: auto;
+        }
+        @media (min-width: 640px) {
+            .menu-mobile-panneau { top: 6rem; max-height: calc(100vh - 6rem); }
+        }
+        .menu-lien-mobile {
+            display: block; padding: .625rem .75rem; border-radius: .375rem;
+            font-size: 1rem; font-weight: 500; color: #3d5048; text-decoration: none;
+            transition: background-color .15s ease;
+        }
+        .menu-lien-mobile:hover, .menu-lien-mobile:focus-visible { background: #f4f6f5; }
+        .menu-mobile-soins[open] > summary .menu-fleche { transform: rotate(180deg); }
     </style>
 
     <script type="application/ld+json">
@@ -160,22 +196,114 @@
     <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-sand-200" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 sm:h-24">
-                <a href="index.html" aria-label="Accueil — Massothérapie Samuel Beauchamp" class="flex-shrink-0">
+                <a href="index.html" aria-label="Samuel Beauchamp — Massothérapeute, retour à l'accueil" class="flex-shrink-0">
                     <img src="image/logo-samuel-beauchamp-massotherapie.png"
-                         alt="Massothérapie Samuel Beauchamp, Rimouski"
+                         alt="Samuel Beauchamp — Massothérapeute, Rimouski"
                          class="h-10 sm:h-12 w-auto" width="360" height="307" loading="eager" decoding="async">
                 </a>
+
+                <!-- Liens desktop — avec menu déroulant « Soins & douleurs » (CSS pur) -->
                 <ul class="hidden lg:flex items-center gap-6 xl:gap-8 list-none m-0 p-0" role="list">
                     <li><a href="index.html" class="text-base font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline">Accueil</a></li>
-                    <li><a href="soins-et-douleurs.html" class="text-base font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline">Soins &amp; douleurs</a></li>
+                    <li class="menu-deroulant relative">
+                        <a href="soins-et-douleurs.html"
+                           class="inline-flex items-center gap-1.5 text-base font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline"
+                           aria-haspopup="true">Soins &amp; douleurs <svg class="menu-fleche w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></a>
+
+                        <!-- Panneau du menu déroulant -->
+                        <div class="menu-panneau absolute left-1/2 -translate-x-1/2 top-full pt-3">
+                            <div class="w-[38rem] bg-white rounded-2xl border border-sand-200 shadow-xl p-6">
+                                <div class="grid grid-cols-2 gap-x-8">
+                                    <div>
+                                        <p class="text-xs font-semibold uppercase tracking-widest text-primary-600 mb-3">Les approches</p>
+                                        <ul class="list-none m-0 p-0" role="list">
+                                <li><a href="massage-tissus-profonds-rimouski.html" class="menu-lien">Massage des tissus profonds</a></li>
+                                <li><a href="ecoute-du-corps-rimouski.html" class="menu-lien">Écoute du corps</a></li>
+                                <li><a href="massage-detente-relaxation-rimouski.html" class="menu-lien">Détente en profondeur</a></li>
+                                <li><a href="massage-sportif-rimouski.html" class="menu-lien">Massage sportif</a></li>
+                                <li><a href="respiration-diaphragme-rimouski.html" class="menu-lien">Respiration et diaphragme</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-semibold uppercase tracking-widest text-primary-600 mb-3">Les inconforts</p>
+                                        <ul class="list-none m-0 p-0" role="list">
+                                <li><a href="mal-de-dos-rimouski.html" class="menu-lien">Mal de dos et lombaires</a></li>
+                                <li><a href="douleur-cou-nuque-rimouski.html" class="menu-lien">Cou, nuque et trapèzes</a></li>
+                                <li><a href="douleur-epaule-rimouski.html" class="menu-lien">Épaule</a></li>
+                                <li><a href="sciatique-rimouski.html" class="menu-lien">Douleur de type sciatique</a></li>
+                                <li><a href="douleur-hanche-rimouski.html" class="menu-lien">Hanches et bassin</a></li>
+                                <li><a href="douleur-genou-cheville-rimouski.html" class="menu-lien menu-lien-actif" aria-current="page">Genoux et chevilles</a></li>
+                                <li><a href="maux-de-tete-tension-rimouski.html" class="menu-lien">Maux de tête de tension</a></li>
+                                <li><a href="stress-tensions-rimouski.html" class="menu-lien">Stress et tensions</a></li>
+                                <li><a href="douleurs-chroniques-rimouski.html" class="menu-lien">Douleurs chroniques</a></li>
+                                <li><a href="recuperation-blessure-rimouski.html" class="menu-lien">Récupération après blessure</a></li>
+                                <li><a href="posture-travail-bureau-rimouski.html" class="menu-lien">Posture et travail de bureau</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="soins-et-douleurs.html"
+                                   class="block mt-5 pt-4 border-t border-sand-200 text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline">Voir toutes les pages de soins →</a>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="index.html#approche" class="text-base font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline">Approche</a></li>
                     <li><a href="index.html#tarifs" class="text-base font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline">Tarifs</a></li>
                     <li><a href="index.html#localisation" class="text-base font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline">Localisation</a></li>
                 </ul>
+
                 <div class="flex items-center gap-2 sm:gap-3">
                     <a href="tel:5146495560" class="hidden sm:inline text-sm font-medium text-primary-700 hover:text-primary-500 transition-colors no-underline">514&nbsp;649-5560</a>
                     <a href="https://m.me/SamuelBeauchampMassotherapeute" target="_blank" rel="noopener noreferrer"
                        class="btn-primary text-sm sm:text-base px-5 sm:px-6 py-2 sm:py-2.5">Prendre rendez-vous</a>
+
+                    <!-- Menu mobile — <details> : aucun JavaScript nécessaire -->
+                    <details class="menu-mobile lg:hidden">
+                        <summary class="flex items-center justify-center w-10 h-10 rounded-md text-primary-700 hover:bg-primary-50 transition-colors" aria-label="Menu de navigation">
+                            <svg class="icone-ouvrir w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+                            <svg class="icone-fermer w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18"/></svg>
+                        </summary>
+
+                        <div class="menu-mobile-panneau border-t border-sand-200 bg-white">
+                            <ul class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1 list-none m-0 p-0" role="list">
+                                <li><a href="index.html" class="menu-lien-mobile">Accueil</a></li>
+                                <li>
+                                    <!-- Sous-menu dépliable : les 16 pages de soins -->
+                                    <details class="menu-mobile-soins">
+                                        <summary class="menu-lien-mobile flex items-center justify-between">
+                                            <span>Soins &amp; douleurs</span>
+                                            <svg class="menu-fleche w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                        </summary>
+                                        <ul class="pl-3 mt-1 border-l border-sand-200 list-none m-0 p-0" role="list">
+                                            <li><a href="soins-et-douleurs.html" class="menu-lien-mobile">Toutes les pages de soins</a></li>
+                                            <li><p class="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-widest text-primary-600">Les approches</p></li>
+                                <li><a href="massage-tissus-profonds-rimouski.html" class="menu-lien-mobile">Massage des tissus profonds</a></li>
+                                <li><a href="ecoute-du-corps-rimouski.html" class="menu-lien-mobile">Écoute du corps</a></li>
+                                <li><a href="massage-detente-relaxation-rimouski.html" class="menu-lien-mobile">Détente en profondeur</a></li>
+                                <li><a href="massage-sportif-rimouski.html" class="menu-lien-mobile">Massage sportif</a></li>
+                                <li><a href="respiration-diaphragme-rimouski.html" class="menu-lien-mobile">Respiration et diaphragme</a></li>
+                                            <li><p class="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-widest text-primary-600">Les inconforts</p></li>
+                                <li><a href="mal-de-dos-rimouski.html" class="menu-lien-mobile">Mal de dos et lombaires</a></li>
+                                <li><a href="douleur-cou-nuque-rimouski.html" class="menu-lien-mobile">Cou, nuque et trapèzes</a></li>
+                                <li><a href="douleur-epaule-rimouski.html" class="menu-lien-mobile">Épaule</a></li>
+                                <li><a href="sciatique-rimouski.html" class="menu-lien-mobile">Douleur de type sciatique</a></li>
+                                <li><a href="douleur-hanche-rimouski.html" class="menu-lien-mobile">Hanches et bassin</a></li>
+                                <li><a href="douleur-genou-cheville-rimouski.html" class="menu-lien-mobile menu-lien-actif" aria-current="page">Genoux et chevilles</a></li>
+                                <li><a href="maux-de-tete-tension-rimouski.html" class="menu-lien-mobile">Maux de tête de tension</a></li>
+                                <li><a href="stress-tensions-rimouski.html" class="menu-lien-mobile">Stress et tensions</a></li>
+                                <li><a href="douleurs-chroniques-rimouski.html" class="menu-lien-mobile">Douleurs chroniques</a></li>
+                                <li><a href="recuperation-blessure-rimouski.html" class="menu-lien-mobile">Récupération après blessure</a></li>
+                                <li><a href="posture-travail-bureau-rimouski.html" class="menu-lien-mobile">Posture et travail de bureau</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+                                <li><a href="index.html#approche" class="menu-lien-mobile">Approche</a></li>
+                                <li><a href="index.html#protocole" class="menu-lien-mobile">Protocole</a></li>
+                                <li><a href="index.html#tarifs" class="menu-lien-mobile">Tarifs</a></li>
+                                <li><a href="index.html#localisation" class="menu-lien-mobile">Localisation</a></li>
+                                <li><a href="tel:5146495560" class="menu-lien-mobile sm:hidden">Appeler le 514 649-5560</a></li>
+                            </ul>
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
@@ -356,17 +484,22 @@
     <footer class="bg-primary-900 text-white py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="mb-8">
-                <img src="image/banniere-verte.webp" alt="Logo Massothérapie Samuel Beauchamp"
+                <img src="image/banniere-verte.webp" alt="Samuel Beauchamp — Massothérapeute"
                      class="mx-auto h-auto w-full max-w-md sm:max-w-lg rounded-xl" width="853" height="329" loading="lazy" decoding="async">
             </div>
-            <p class="text-primary-300 mb-1 text-sm">Massothérapie Clinique</p>
-            <p class="text-primary-300 mb-1 text-sm">244 avenue de la Cathédrale, Rimouski (QC) G5L 5J4</p>
+            <p class="text-primary-200 mb-1 text-sm font-medium">Samuel Beauchamp — Massothérapeute</p>
+            <p class="text-primary-300 mb-1 text-sm">Massothérapie thérapeutique à Rimouski</p>
+            <p class="text-primary-300 mb-1 text-sm">244 avenue de la Cathédrale</p>
+            <p class="text-primary-300 mb-1 text-sm">Rimouski, Québec</p>
             <a href="tel:5146495560" class="text-primary-300 hover:text-white text-sm mb-3 inline-block transition-colors">514 649-5560</a>
             <div class="text-primary-400 text-xs mb-2 space-y-0.5">
                 <p>Mar — Jeu &nbsp;12h à 19h</p>
                 <p>Ven — Sam &nbsp;12h à 17h</p>
                 <p>Dim — Lun &nbsp;Congé</p>
             </div>
+            <!-- Appartenance professionnelle — lien vers la fiche publique du RMPQ -->
+            <p class="text-primary-300 text-xs mb-2">Membre du <a href="https://rmpq.ca/repertoire-des-membres/rimouski/samuel-beauchamp-785142/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">RMPQ</a> · no.&nbsp;218305</p>
+
             <div class="w-full h-px bg-primary-700 my-6"></div>
             <a href="https://www.facebook.com/SamuelBeauchampMassotherapeute" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2 text-primary-200 hover:text-white transition-colors text-sm">
@@ -383,7 +516,7 @@
                 La massothérapie est une pratique de mieux-être complémentaire. Elle ne remplace pas un diagnostic
                 ni un suivi médical professionnel.
             </p>
-            <p class="text-primary-400 text-xs mb-3">© 2026 Massothérapie Samuel Beauchamp. Tous droits réservés.</p>
+            <p class="text-primary-400 text-xs mb-3">© 2026 Samuel Beauchamp — Massothérapeute. Tous droits réservés.</p>
             <div class="flex items-center justify-center gap-4">
                 <a href="legal.html" class="text-primary-500 hover:text-primary-300 text-xs transition-colors underline">Mentions légales</a>
                 <span class="text-primary-700 text-xs">·</span>
