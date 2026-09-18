@@ -91,6 +91,10 @@
             transition: background-color .15s ease;
         }
         .menu-lien-mobile:hover, .menu-lien-mobile:focus-visible { background: #f4f6f5; }
+        /* Le résumé du sous-menu aligne son chevron à droite (display:block sinon) */
+        .menu-mobile-soins > summary.menu-lien-mobile {
+            display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+        }
         .menu-mobile-soins[open] > summary .menu-fleche { transform: rotate(180deg); }
     </style>
 
@@ -182,7 +186,7 @@
     },
     {
       "@type": "Question",
-      "name": "Faut-il traiter les deux épaules ?",
+      "name": "Faut-il travailler les deux épaules ?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Souvent, oui. L'épaule opposée compense fréquemment et développe ses propres tensions. Cela est évalué sur place."
@@ -297,7 +301,7 @@
                                     </details>
                                 </li>
                                 <li><a href="index.html#approche" class="menu-lien-mobile">Approche</a></li>
-                                <li><a href="index.html#protocole" class="menu-lien-mobile">Protocole</a></li>
+                                <li><a href="index.html#protocole" class="menu-lien-mobile">Déroulement</a></li>
                                 <li><a href="index.html#tarifs" class="menu-lien-mobile">Tarifs</a></li>
                                 <li><a href="index.html#localisation" class="menu-lien-mobile">Localisation</a></li>
                                 <li><a href="tel:5146495560" class="menu-lien-mobile sm:hidden">Appeler le 514 649-5560</a></li>
@@ -418,7 +422,7 @@
                 </details>
                 <details class="bg-white rounded-2xl border border-sand-200 p-6 group">
                     <summary class="flex items-center justify-between gap-4 font-medium text-primary-900">
-                        <span>Faut-il traiter les deux épaules ?</span>
+                        <span>Faut-il travailler les deux épaules ?</span>
                         <span class="text-primary-400 text-xl leading-none group-open:rotate-45 transition-transform">+</span>
                     </summary>
                     <p class="text-gray-600 leading-relaxed mt-4">Souvent, oui. L'épaule opposée compense fréquemment et développe ses propres tensions. Cela est évalué sur place.</p>
@@ -491,7 +495,11 @@
             <p class="text-primary-300 mb-1 text-sm">Massothérapie thérapeutique à Rimouski</p>
             <p class="text-primary-300 mb-1 text-sm">244 avenue de la Cathédrale</p>
             <p class="text-primary-300 mb-1 text-sm">Rimouski, Québec</p>
-            <a href="tel:5146495560" class="text-primary-300 hover:text-white text-sm mb-3 inline-block transition-colors">514 649-5560</a>
+            <p class="mb-3">
+                    <a href="tel:5146495560" class="text-primary-300 hover:text-white text-sm transition-colors">514 649-5560</a>
+                    <span class="text-primary-700 text-sm mx-2">·</span>
+                    <a href="mailto:sambeauchamp@hotmail.fr?subject=Demande%20de%20rendez-vous%20en%20massoth%C3%A9rapie" class="text-primary-300 hover:text-white text-sm transition-colors">sambeauchamp@hotmail.fr</a>
+                </p>
             <div class="text-primary-400 text-xs mb-2 space-y-0.5">
                 <p>Mar — Jeu &nbsp;12h à 19h</p>
                 <p>Ven — Sam &nbsp;12h à 17h</p>

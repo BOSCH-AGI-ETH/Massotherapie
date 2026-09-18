@@ -41,6 +41,7 @@
       ],
       "logo": "https://massotherapiesamuelbeauchamp.online/image/logo_Samuel-Beauchamp_masso_vert.png",
       "telephone": "+1-514-649-5560",
+      "email": "sambeauchamp@hotmail.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "244 avenue de la Cathédrale",
@@ -191,7 +192,7 @@
           "name": "Comment prendre rendez-vous avec Samuel Beauchamp massothérapeute à Rimouski ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Le moyen le plus rapide est de contacter Samuel directement via Messenger Facebook ou par téléphone au 514 649-5560."
+            "text": "Trois façons de me joindre : par téléphone au 514 649-5560, par courriel à sambeauchamp@hotmail.fr, ou par Messenger Facebook. Le téléphone et le courriel ne demandent aucun compte sur une plateforme externe."
           }
         },
         {
@@ -392,6 +393,27 @@
             background: #4a6257;
             color: white;
         }
+
+        /* Variantes claires — boutons posés sur le fond vert de la section contact.
+           Nécessaires car .btn-primary / .btn-outline écrasent les utilitaires Tailwind
+           (même spécificité, mais définis plus loin dans la cascade). */
+        .btn-primary-clair {
+            background: #ffffff;
+            color: #3d5048;
+        }
+        .btn-primary-clair:hover {
+            background: #f5f4f0;
+            color: #34433c;
+        }
+        .btn-outline-clair {
+            border-color: #ffffff;
+            color: #ffffff;
+            background: transparent;
+        }
+        .btn-outline-clair:hover {
+            background: #ffffff;
+            color: #3d5048;
+        }
         
         /* Animation */
         @keyframes fadeInUp {
@@ -556,7 +578,7 @@
                     <li><a href="#accueil"     class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Accueil</a></li>
                     <li><a href="soins-et-douleurs.html" class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Soins &amp; douleurs</a></li>
                     <li><a href="#approche"    class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Approche</a></li>
-                    <li><a href="#protocole"   class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Protocole</a></li>
+                    <li><a href="#protocole"   class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Déroulement</a></li>
                     <li><a href="#temoignages" class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Témoignages</a></li>
                     <li><a href="#tarifs"      class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Tarifs</a></li>
                     <li><a href="#contact"     class="nav-link text-base font-medium text-primary-700 hover:text-primary-500 transition-colors duration-200 no-underline">Contact</a></li>
@@ -595,7 +617,7 @@
                 <li><a href="#accueil"     class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Accueil</a></li>
                 <li><a href="soins-et-douleurs.html" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Soins &amp; douleurs</a></li>
                 <li><a href="#approche"    class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Approche</a></li>
-                <li><a href="#protocole"   class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Protocole</a></li>
+                <li><a href="#protocole"   class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Déroulement</a></li>
                 <li><a href="#temoignages" class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Témoignages</a></li>
                 <li><a href="#tarifs"      class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Tarifs</a></li>
                 <li><a href="#contact"     class="nav-link mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-primary-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200 no-underline">Contact</a></li>
@@ -647,13 +669,31 @@
                     </a>
                 </div>
                 
-                <!-- Insurance Badge -->
+                <!-- Preuves : reçus d'assurance + note Google réelle
+                     ⚠ Chiffres à mettre à jour à la main quand les avis augmentent.
+                     Pas de widget Google : aucune ressource tierce n'est chargée (Loi 25). -->
                 <div class="mt-8 sm:mt-12 pt-8 border-t border-sand-200 max-w-2xl mx-auto animate-fade-up delay-400">
-                    <div class="flex items-center justify-center gap-3">
-                        <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span class="text-sm font-medium text-primary-800">Reçus d'assurance disponibles</span>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-sm font-medium text-primary-800">Reçus d'assurance disponibles</span>
+                        </div>
+
+                        <a href="https://g.page/r/CfzYPB5zzwnuEBM"
+                           target="_blank" rel="noopener noreferrer"
+                           class="flex items-center gap-2 no-underline hover:opacity-75 transition-opacity"
+                           aria-label="Voir les 17 avis Google, note moyenne de 5 sur 5">
+                            <span class="flex gap-0.5" aria-hidden="true">
+                                <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </span>
+                            <span class="text-sm font-medium text-primary-800">5,0 · 17 avis Google</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -696,7 +736,7 @@
                     
                     <div class="space-y-4 text-gray-600 leading-relaxed">
                         <p>
-                            Mon approche combine <strong>précision clinique</strong> et <strong>écoute attentive</strong>
+                            Mon approche combine <strong>précision technique</strong> et <strong>écoute attentive</strong>
                             pour cibler la source réelle de vos douleurs — pas seulement là où vous les sentez.
                         </p>
 
@@ -834,11 +874,11 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 sm:mb-20">
                 <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
-                    Protocole Thérapeutique
+                    Déroulement d'une séance
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                    Chaque consultation suit un processus clinique rigoureux, 
-                    adapté à vos besoins spécifiques et objectifs de santé
+                    Chaque séance suit une démarche structurée, 
+                    adaptée à vos besoins et à ce que votre corps exprime
                 </p>
             </div>
             
@@ -853,7 +893,7 @@
                         </div>
                         <div>
                             <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 text-primary-900">
-                                Anamnèse & Évaluation Posturale
+                                Discussion et évaluation posturale
                             </h3>
                             <p class="text-gray-600 leading-relaxed">
                                 Discussion approfondie sur vos douleurs, votre historique et vos habitudes de vie.
@@ -874,7 +914,7 @@
                         </div>
                         <div>
                             <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 text-primary-900">
-                                Observation Clinique du Corps
+                                Observation du corps en mouvement
                             </h3>
                             <p class="text-gray-600 leading-relaxed">
                                 Lecture attentive de votre posture en statique et en mouvement. Cette analyse
@@ -917,7 +957,7 @@
                         </div>
                         <div>
                             <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 text-primary-900">
-                                Retour Clinique & Recommandations
+                                Retour sur la séance et recommandations
                             </h3>
                             <p class="text-gray-600 leading-relaxed">
                                 Discussion post-séance sur ce qui a été observé et relâché. Suggestions d'exercices
@@ -994,7 +1034,7 @@
                             <div>
                                 <h3 class="font-semibold text-lg mb-2 text-primary-900">Approche du Bas-Saint-Laurent</h3>
                                 <p class="text-gray-600 leading-relaxed">
-                                    Une pratique établie à Rimouski, alliant rigueur clinique et respect du rythme
+                                    Une pratique établie à Rimouski, alliant rigueur technique et respect du rythme
                                     naturel de chaque client — sans protocoles standardisés, chaque séance est unique.
                                 </p>
                             </div>
@@ -1005,142 +1045,112 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Avis clients — extraits réels publiés sur Google, vérifiables via le lien -->
     <section id="temoignages" class="py-16 sm:py-24 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 sm:mb-20">
                 <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
-                    Témoignages Clients
+                    Ce que disent mes clients
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                    Expériences représentatives vécues par la clientèle
+                    Extraits d’avis publiés sur Google —
+                    <a href="https://g.page/r/CfzYPB5zzwnuEBM" target="_blank" rel="noopener noreferrer"
+                       class="text-primary-700 hover:text-primary-500 underline underline-offset-2 transition-colors">5,0 sur 17 avis</a>.
+                    Chaque avis est consultable à la source.
                 </p>
             </div>
-            
+
             <div class="grid sm:grid-cols-2 gap-6 sm:gap-8">
-                <!-- Testimonial 1 -->
+                <!-- Avis réel publié sur Google -->
                 <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
-                    <div class="flex items-center gap-1 mb-4">
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
+                    <div class="flex items-center gap-1 mb-4" role="img" aria-label="5 étoiles sur 5">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     </div>
-                    <p class="text-gray-700 leading-relaxed mb-6 italic">
-                        "Samuel a une approche unique qui combine technique et écoute. 
-                        Mes tensions chroniques au cou et aux épaules se sont considérablement améliorées. 
-                        Je recommande fortement ses services."
+                    <blockquote class="text-gray-700 leading-relaxed mb-6 italic">
+                        « Samuel est un massothérapeute exceptionnel ! Je le consulte pour m’aider avec ma fasciite plantaire. Il prend le temps d’écouter, d’expliquer et de donner des trucs pour que les bienfaits du traitement perdurent entre les rendez-vous. Je suis venue de Québec pour le consulter et, honnêtement, ça en a largement valu le déplacement ! »
+                    </blockquote>
+                    <p class="text-sm text-gray-500">
+                        Martine C. ·
+                        <a href="https://g.page/r/CfzYPB5zzwnuEBM" target="_blank" rel="noopener noreferrer"
+                           class="text-primary-700 hover:text-primary-500 underline underline-offset-2 transition-colors">avis Google</a>
                     </p>
-                    <div>
-                        <p class="text-sm text-gray-500">Travailleuse de bureau</p>
-                    </div>
                 </div>
-                
-                <!-- Testimonial 2 -->
+
+                <!-- Avis réel publié sur Google -->
                 <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
-                    <div class="flex items-center gap-1 mb-4">
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
+                    <div class="flex items-center gap-1 mb-4" role="img" aria-label="5 étoiles sur 5">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     </div>
-                    <p class="text-gray-700 leading-relaxed mb-6 italic">
-                        "En tant que golfeur, j'avais besoin d'un thérapeute qui comprend la biomécanique du corps. 
-                        Samuel m'a aidé à retrouver ma mobilité et améliorer mes performances. 
-                        Approche professionnelle et résultats concrets."
+                    <blockquote class="text-gray-700 leading-relaxed mb-6 italic">
+                        « Ma 1<sup>re</sup> rencontre avec Samuel m’a fait un grand bien. Accueil simple et chaleureux et technique très intéressante. Travail lent et en profondeur qui dénoue les tensions et aide le corps à se régénérer. Je vais certainement avoir encore recours à ses services. »
+                    </blockquote>
+                    <p class="text-sm text-gray-500">
+                        Anne-Marie J. ·
+                        <a href="https://g.page/r/CfzYPB5zzwnuEBM" target="_blank" rel="noopener noreferrer"
+                           class="text-primary-700 hover:text-primary-500 underline underline-offset-2 transition-colors">avis Google</a>
                     </p>
-                    <div>
-                        <p class="text-sm text-gray-500">Golfeur amateur</p>
-                    </div>
                 </div>
-                
-                <!-- Testimonial 3 -->
+
+                <!-- Avis réel publié sur Google -->
                 <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
-                    <div class="flex items-center gap-1 mb-4">
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
+                    <div class="flex items-center gap-1 mb-4" role="img" aria-label="5 étoiles sur 5">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     </div>
-                    <p class="text-gray-700 leading-relaxed mb-6 italic">
-                        "Après une blessure sportive, je cherchais un thérapeute compétent pour ma récupération. 
-                        L'approche de Samuel est à la fois douce et efficace. Je me sens beaucoup mieux et plus en contrôle de mon corps."
+                    <blockquote class="text-gray-700 leading-relaxed mb-6 italic">
+                        « Excellent massothérapeute, qui est particulièrement doué pour soulager les tensions musculaires. Définitivement un des meilleurs que j’ai consulté. »
+                    </blockquote>
+                    <p class="text-sm text-gray-500">
+                        Myriam de L. ·
+                        <a href="https://g.page/r/CfzYPB5zzwnuEBM" target="_blank" rel="noopener noreferrer"
+                           class="text-primary-700 hover:text-primary-500 underline underline-offset-2 transition-colors">avis Google</a>
                     </p>
-                    <div>
-                        <p class="text-sm text-gray-500">Sportive amateur</p>
-                    </div>
                 </div>
-                
-                <!-- Testimonial 4 -->
+
+                <!-- Avis réel publié sur Google -->
                 <div class="testimonial-card p-6 sm:p-8 rounded-xl shadow-sm">
-                    <div class="flex items-center gap-1 mb-4">
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
+                    <div class="flex items-center gap-1 mb-4" role="img" aria-label="5 étoiles sur 5">
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     </div>
-                    <p class="text-gray-700 leading-relaxed mb-6 italic">
-                        "Samuel prend vraiment le temps d'écouter et de comprendre. Son approche personnalisée
-                        m'a permis de mieux comprendre mon corps et de retrouver un meilleur bien-être. Excellent professionnel."
+                    <blockquote class="text-gray-700 leading-relaxed mb-6 italic">
+                        « Il trouve tous les points et les travaille avec un doigté majestueux, en douceur et en finesse. Il est à l’écoute de nos besoins et de notre corps. Vous pouvez lui faire confiance, il saura vous faire retrouver une détente. »
+                    </blockquote>
+                    <p class="text-sm text-gray-500">
+                        Marie-Pierre C. ·
+                        <a href="https://g.page/r/CfzYPB5zzwnuEBM" target="_blank" rel="noopener noreferrer"
+                           class="text-primary-700 hover:text-primary-500 underline underline-offset-2 transition-colors">avis Google</a>
                     </p>
-                    <div>
-                        <p class="text-sm text-gray-500">Travailleur manuel</p>
-                    </div>
                 </div>
             </div>
+
+            <p class="text-center text-sm text-gray-400 italic mt-10 max-w-2xl mx-auto leading-relaxed">
+                Les résultats varient d’une personne à l’autre. La massothérapie est une pratique de
+                mieux-être complémentaire : elle ne pose pas de diagnostic et ne remplace pas un suivi médical.
+            </p>
         </div>
     </section>
 
-    <!-- Indications Thérapeutiques -->
+    <!-- Quand la massothérapie peut aider -->
     <section class="py-16 sm:py-24 bg-sand-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 sm:mb-16">
                 <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-900 mb-6 section-title">
-                    Indications Thérapeutiques
+                    Quand la massothérapie peut aider
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
                     Le massage des tissus profonds est particulièrement indiqué pour
@@ -1216,7 +1226,7 @@
                         <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        Stress Somatisé
+                        Tensions liées au stress
                     </h3>
                     <p class="text-gray-600 text-base leading-relaxed">
                         Tensions musculaires accumulées liées au stress ou à l'épuisement
@@ -1367,7 +1377,7 @@
                         <svg class="faq-icon w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
                     <p class="text-gray-600 text-base leading-relaxed pb-5">
-                        Le moyen le plus rapide est de contacter Samuel via <strong>Messenger Facebook</strong> en cliquant sur le bouton "Prendre Rendez-vous" sur cette page. Vous pouvez aussi appeler ou texter au <strong><a href="tel:5146495560" class="text-primary-700 hover:underline">514 649-5560</a></strong>.
+                        Trois façons de me joindre, au choix : <strong><a href="tel:5146495560" class="text-primary-700 hover:underline">514 649-5560</a></strong> (appel ou texto), <strong><a href="mailto:sambeauchamp@hotmail.fr?subject=Demande%20de%20rendez-vous%20en%20massoth%C3%A9rapie" class="text-primary-700 hover:underline">sambeauchamp@hotmail.fr</a></strong>, ou <strong>Messenger Facebook</strong> via le bouton « Prendre Rendez-vous ». Le téléphone et le courriel ne demandent aucun compte sur une plateforme externe.
                     </p>
                 </details>
 
@@ -1435,6 +1445,10 @@
                             <a href="tel:5146495560"
                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary-300 text-primary-700 text-sm font-medium hover:bg-primary-50 transition-colors no-underline">
                                 514 649-5560
+                            </a>
+                            <a href="mailto:sambeauchamp@hotmail.fr?subject=Demande%20de%20rendez-vous%20en%20massoth%C3%A9rapie"
+                               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary-300 text-primary-700 text-sm font-medium hover:bg-primary-50 transition-colors no-underline">
+                                Écrire un courriel
                             </a>
                         </div>
                         <div class="mt-6 pt-6 border-t border-sand-200">
@@ -1509,15 +1523,26 @@
                 </div>
             </div>
 
-            <a href="https://m.me/SamuelBeauchampMassotherapeute"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn-primary bg-white text-primary-800 hover:bg-sand-100">
-                Prendre Rendez-vous
-            </a>
-            <p class="text-white/50 text-xs mt-4 italic max-w-sm mx-auto">
-                Ce bouton ouvre Facebook Messenger (Meta, États-Unis).
-                Vous préférez appeler? <a href="tel:5146495560" class="underline hover:text-white/80 transition-colors">514 649-5560</a>
+            <!-- Trois voies de contact : aucune n'oblige à passer par Meta -->
+            <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4">
+                <a href="tel:5146495560"
+                   class="btn-primary btn-primary-clair">
+                    Appeler le 514 649-5560
+                </a>
+                <a href="mailto:sambeauchamp@hotmail.fr?subject=Demande%20de%20rendez-vous%20en%20massoth%C3%A9rapie"
+                   class="btn-outline btn-outline-clair">
+                    Écrire un courriel
+                </a>
+                <a href="https://m.me/SamuelBeauchampMassotherapeute"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-outline btn-outline-clair">
+                    Messenger
+                </a>
+            </div>
+            <p class="text-white/50 text-xs mt-6 italic max-w-md mx-auto">
+                Par téléphone ou par courriel, aucune plateforme externe n'est nécessaire.
+                Le bouton Messenger, lui, ouvre Facebook (Meta, États-Unis).
             </p>
         </div>
     </section>
@@ -1541,7 +1566,11 @@
                 <p class="text-primary-300 mb-1 text-sm">Massothérapie thérapeutique à Rimouski</p>
                 <p class="text-primary-300 mb-1 text-sm">244 avenue de la Cathédrale</p>
                 <p class="text-primary-300 mb-1 text-sm">Rimouski, Québec</p>
-                <a href="tel:5146495560" class="text-primary-300 hover:text-white text-sm mb-3 inline-block transition-colors">514 649-5560</a>
+                <p class="mb-3">
+                    <a href="tel:5146495560" class="text-primary-300 hover:text-white text-sm transition-colors">514 649-5560</a>
+                    <span class="text-primary-700 text-sm mx-2">·</span>
+                    <a href="mailto:sambeauchamp@hotmail.fr?subject=Demande%20de%20rendez-vous%20en%20massoth%C3%A9rapie" class="text-primary-300 hover:text-white text-sm transition-colors">sambeauchamp@hotmail.fr</a>
+                </p>
 
                 <div class="text-primary-400 text-xs mb-2 space-y-0.5">
                     <p>Mar — Jeu &nbsp;12h à 19h</p>
@@ -1682,12 +1711,31 @@
         (function () {
             var banner = document.getElementById('legal-banner');
             var closeBtn = document.getElementById('legal-banner-close');
+
             if (!localStorage.getItem('legal-acknowledged')) {
                 banner.classList.remove('hidden');
             }
+
+            // Empilement des barres fixes du bas : la barre légale se place
+            // au-dessus du CTA mobile au lieu de le recouvrir. Les hauteurs sont
+            // mesurées pour rester justes si le texte passe sur plusieurs lignes.
+            function ajusterBarres() {
+                var barreCta = document.getElementById('mobile-cta-bar');
+                // offsetHeight vaut 0 quand le CTA est masqué (écrans lg et plus)
+                var hauteurCta = barreCta ? barreCta.offsetHeight : 0;
+                var hauteurBanniere = banner.classList.contains('hidden') ? 0 : banner.offsetHeight;
+                var racine = document.documentElement.style;
+                racine.setProperty('--hauteur-cta', hauteurCta + 'px');
+                racine.setProperty('--hauteur-barres', (hauteurCta + hauteurBanniere) + 'px');
+            }
+
+            document.addEventListener('DOMContentLoaded', ajusterBarres);
+            window.addEventListener('resize', ajusterBarres);
+
             closeBtn.addEventListener('click', function () {
                 banner.classList.add('hidden');
                 localStorage.setItem('legal-acknowledged', '1');
+                ajusterBarres();
             });
         })();
     </script>
@@ -1704,9 +1752,16 @@
     </div>
 
     <style>
-        /* Espace pour que le footer ne soit pas caché par la barre fixe sur mobile */
+        /* La barre légale se pose sur le CTA mobile plutôt que de le masquer.
+           Hauteur fournie par le script ; 0 par défaut (desktop, ou sans JS). */
+        #legal-banner {
+            bottom: var(--hauteur-cta, 0px);
+            transition: bottom .2s ease;
+        }
+
+        /* Espace pour que le footer ne soit pas caché par les barres fixes sur mobile */
         @media (max-width: 1023px) {
-            footer { padding-bottom: 5rem; }
+            footer { padding-bottom: calc(var(--hauteur-barres, 5rem) + 1rem); }
         }
     </style>
 
