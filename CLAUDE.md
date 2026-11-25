@@ -286,6 +286,16 @@ git commit -m "message"
 git push origin main
 ```
 
+**⚠️ Règle obligatoire — demander avant tout commit ou push.**
+Samuel ne veut pas que le site soit mis à jour trop souvent. Claude ne fait **jamais**
+`git commit` ni `git push` de sa propre initiative, même après une modification
+terminée et vérifiée. Procédure :
+1. Faire les modifications demandées (et recompiler Tailwind si nécessaire).
+2. Résumer ce qui a changé et demander : « Veux-tu que je commit et push ? »
+3. Ne commit/push qu'après un « oui » explicite de Samuel, de préférence en regroupant
+   plusieurs modifications dans un seul commit.
+Une approbation vaut pour ce commit seulement, pas pour les suivants.
+
 ---
 
 ## CE QU'IL FAUT ÉVITER
